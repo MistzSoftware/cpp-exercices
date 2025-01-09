@@ -56,6 +56,21 @@ add_custom_target(run_insertionsort
     WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
 )
 
+###################################################################
+######################## MergeSort ################################
+###################################################################
+
+# Add the executable target
+add_executable(mergesort src/mergesort.cpp)
+target_compile_options(mergesort PRIVATE -Wall -Wextra -Wpedantic)
+
+# Add a custom target to run
+add_custom_target(run_mergesort
+    COMMAND mergesort
+    DEPENDS mergesort
+    WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
+)
+
 # TO USE it
 # Step 1: run mkdir build && cd build
 # Step 2: run cmake .. -DCMAKE_CXX_COMPILER=clang++
