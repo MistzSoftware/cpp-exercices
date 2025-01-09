@@ -41,6 +41,21 @@ add_custom_target(run_bubblesort
     WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
 )
 
+###################################################################
+######################## InsertionSort ############################
+###################################################################
+
+# Add the executable target
+add_executable(insertionsort src/insertionsort.cpp)
+target_compile_options(insertionsort PRIVATE -Wall -Wextra -Wpedantic)
+
+# Add a custom target to run
+add_custom_target(run_insertionsort
+    COMMAND insertionsort
+    DEPENDS insertionsort
+    WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
+)
+
 # TO USE it
 # Step 1: run mkdir build && cd build
 # Step 2: run cmake .. -DCMAKE_CXX_COMPILER=clang++
